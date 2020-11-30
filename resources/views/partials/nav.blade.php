@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
 
     <a class="navbar-brand col-md-3 col-lg-2 mr-3 px-3"> FourNet
-      <!--     <img src="images/4Net-1024x507.png" alt="imagen" height="30px" width="150px" id="">-->
-    </a>
+{{--            <img src={{asset('images/4Net-1024x507.png') }} alt="imagen" height="30px" width="150px" id="">
+ --}}    </a>
   
   
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
