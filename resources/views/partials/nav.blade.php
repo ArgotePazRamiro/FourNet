@@ -30,33 +30,33 @@
   
   
             <li class="nav-item">
-            <a class="nav-link" href="clientes.index">
+            <a class="nav-link" href="{{route('clientes')}}">
                 <span data-feather="users"></span>
                 Clientes
               </a>
             </li>
   
             <li class="nav-item">
-            <a class="nav-link" href="planes.index">
+            <a class="nav-link" href="{{route('planes')}}">
                 <span data-feather="layers"></span>
                 Planes
               </a>
   
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="tecnicos.index">
+              <a class="nav-link" href="{{route('tecnicos')}}">
                 <span data-feather="rss"></span>
                 Tecnicos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="servicioTecnico.index">
+              <a class="nav-link" href="{{route('servicioTecnico')}}">
                 <span data-feather="file-text"></span>
                 Servicio Tecnico
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="reportes.index">
+              <a class="nav-link" href="{{route('reportes')}}">
                 <span data-feather="bar-chart-2"></span>
                 Reportes
               </a>

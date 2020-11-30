@@ -13,7 +13,7 @@ class servicioTecnico extends Controller
      */
     public function index()
     {
-        //
+        return view('servicioTecnico.index');
     }
 
     /**

@@ -13,7 +13,7 @@ class reportes extends Controller
      */
     public function index()
     {
-        //
+        return view('reportes.index');
     }
 
     /**
