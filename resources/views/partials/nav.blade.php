@@ -30,7 +30,7 @@
   
   
             <li class="nav-item">
-            <a class="nav-link" href="{{route('clientes')}}">
+            <a class="nav-link" href="{{route('clientes.index')}}">
                 <span data-feather="users"></span>
                 Clientes
               </a>

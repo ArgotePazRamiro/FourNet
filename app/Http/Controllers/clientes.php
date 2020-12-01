@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cochabamba;
+use App\Models\equipos;
 use Illuminate\Http\Response;
 
 class clientes extends Controller
@@ -15,8 +15,23 @@ class clientes extends Controller
      */
     public function index()
     {
-        return view('clientes.index');
+        $clientes=equipos::all();
+        return view("clientes.index",['clientes'=> $clientes]);
     }
+
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(equipos $clientes)
+    {
+        return view("clientes.index",['clientes'=> $clientes]);
+        
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +40,10 @@ class clientes extends Controller
      */
     public function create()
     {
-        //
+        $clientes=equipos::all();
+        return view("clientes.create",['clientes'=> new equipos],compact('clientes'));
+
+        
     }
 
     /**
@@ -36,19 +54,23 @@ class clientes extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clientes=equipos::all();
+        equipos::create([
+            'Nombre'=>request('Nombre'),
+            'Usuario'=>request('Usuario'),
+            'Contrasenia'=>request('Contrasenia'),
+            'UsuarioPPPoE'=>request('UsuarioPPPoE'),
+            'ContraseniaPPPoE'=>request('ContraseniaPPPoE'),
+            'SSID'=>request('SSID'),
+            'PasswordSSSID'=>request('PasswordSSSID'),
+            'Tipo'=>request('Tipo'),
+            'Estado'=>request('Estado'),
+
+        ]);
+        return redirect()->route('clientes.index',compact('clientes'));
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -56,9 +78,10 @@ class clientes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $clientes=equipos::all();
+        return view('clientes.edit',['clientes'=>$clientes]);
     }
 
     /**
@@ -68,9 +91,10 @@ class clientes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(equipos $clientes)
     {
-        //
+        $clientes->update(request()->all());
+        return redirect()->route('clientes.index',$clientes);
     }
 
     /**
@@ -79,8 +103,9 @@ class clientes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(equipos $clientes)
     {
-        //
+        $clientes->delete();
+        return redirect()->route('clientes.index');
     }
 }
