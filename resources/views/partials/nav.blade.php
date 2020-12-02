@@ -60,7 +60,7 @@
             </li>
   
             <li class="nav-item  ">
-            <a class="nav-link {{ setActive('planes') }} " href=" {{route('planes')}} ">
+            <a class="nav-link {{ setActive('planes.index') }} " href=" {{route('planes.index')}} ">
                 <span data-feather="layers"></span>
                 Planes
               </a>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\planes;
+
 
 class PlanesController extends Controller
 {
@@ -13,7 +15,8 @@ class PlanesController extends Controller
      */
     public function index()
     {
-        return view('planes.index');
+        $planes=planes::all();
+        return view('planes.index',['planes'=> $planes]);
         
     }
 
@@ -24,7 +27,8 @@ class PlanesController extends Controller
      */
     public function create()
     {
-        //
+        $planes=new planes;
+        return view("planes.create", compact("planes"));
     }
 
     /**
@@ -35,7 +39,15 @@ class PlanesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        planes::create([
+            'Nombre'=>request('Nombre'),
+            'Velocidad_subida'=>request('Velocidad_subida'),
+            'Velocidad_bajada'=>request('Velocidad_bajada'),
+            'Precio'=>request('Precio'),
+
+        ]);
+        return redirect()->route('planes.index');
+
     }
 
     /**
