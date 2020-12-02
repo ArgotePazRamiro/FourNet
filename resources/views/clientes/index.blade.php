@@ -35,9 +35,9 @@
             </h6>  --}}
             <!-- Boton para crear .... autentificar-->
             
-            <h2><u><a class="btn btn-primary mb-2" href="{{route('clientes.create') }}"> 
+            {{-- <h2><u><a class="btn btn-primary mb-2" href="{{route('clientes.create') }}"> 
                 Crear Nuevo cliente
-            </a></u></h2>
+            </a></u></h2> --}}
             
             
             
@@ -61,7 +61,7 @@
             </thead>
             <tbody>
                 
-                 @forelse ($clientes as $portItem)
+                 {{-- @forelse ($clientes as $portItem)
                  <tr>
                     <th scope="row">{{ $portItem->Nombre }}</th>
                     <td><u>{{ $portItem->Usuario }} </u></td>
@@ -78,11 +78,11 @@
                 @empty
                 <p class="list-group-item border-0 mb-3 shadow-sm">
                     No hay Empleados Registrados
-                </p> 
+                </p>  --}}
     
             </tbody>
                 
-            @endforelse
+            
     </table>
           
     </div>

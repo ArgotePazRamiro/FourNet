@@ -27,6 +27,15 @@
           {{ csrf_field() }}
       </form>
       @endguest
+      <script>
+        <?php
+
+      function setActive($routeName){
+
+      return request()-> routeIs($routeName) ? 'active' : '';
+      }?>
+      </script>
+      
 
   </nav>
 </nav>
@@ -35,42 +44,42 @@
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="sidebar-sticky pt-3">
           <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="/">
+            <li class="nav-item ">
+            <a class="nav-link {{ setActive('home') }}" href="{{route('home')}}">
                 <span data-feather="home"></span>
                 Inicio
               </a>
             </li>
   
   
-            <li class="nav-item">
-            <a class="nav-link" href="{{-- {{route('clientes.index')}} --}}">
+            <li class="nav-item ">
+            <a class="nav-link {{ setActive('clientes') }} " href=" {{route('clientes')}} ">
                 <span data-feather="users"></span>
                 Clientes
               </a>
             </li>
   
-            <li class="nav-item">
-            <a class="nav-link" href="{{-- {{route('planes')}} --}}">
+            <li class="nav-item  ">
+            <a class="nav-link {{ setActive('planes') }} " href=" {{route('planes')}} ">
                 <span data-feather="layers"></span>
                 Planes
               </a>
   
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{-- {{route('tecnicos')}} --}}">
+            <li class="nav-item ">
+              <a class="nav-link {{ setActive('tecnicos') }}" href="{{route('tecnicos')}} ">
                 <span data-feather="rss"></span>
                 Tecnicos
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{-- {{route('servicioTecnico')}} --}}">
+            <li class="nav-item ">
+              <a class="nav-link {{ setActive('servicioTecnico') }}" href=" {{route('servicioTecnico')}} ">
                 <span data-feather="file-text"></span>
                 Servicio Tecnico
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{-- {{route('reportes')}} --}}">
+            <li class="nav-item ">
+              <a class="nav-link {{ setActive('reportes') }}" href=" {{route('reportes')}} ">
                 <span data-feather="bar-chart-2"></span>
                 Reportes
               </a>

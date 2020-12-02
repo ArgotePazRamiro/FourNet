@@ -13,7 +13,8 @@ class TecnicosController extends Controller
      */
     public function index()
     {
-        //
+        return view('tecnicos.index');
+        
     }
 
     /**

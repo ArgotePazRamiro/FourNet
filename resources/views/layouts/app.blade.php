@@ -51,6 +51,7 @@
         <header class="bg-blue-900 py-6">
                 @include('partials.nav')
         </header>
+        
         <footer class="bg-white text-center text-black-50 py-3 shadow">
             {{ config('app.name') }} | Copyright @ {{ date('Y') }} Servidores 
             <ul class="list-inline">
@@ -59,7 +60,7 @@
                 <li class="list-inline-item"><a href="#">Support</a></li>
             </ul>
         </footer>
-        @yield('content')
+       
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

@@ -6,13 +6,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
-/* Route::get('/planes', [\App\Http\Controllers\planes::class, 'index'])->name('planes');
-Route::get('/reportes', [\App\Http\Controllers\reportes::class, 'index'])->name('reportes');
-Route::get('/servicioTecnico', [\App\Http\Controllers\servicioTecnico::class, 'index'])->name('servicioTecnico');
-Route::get('/tecnicos', [\App\Http\Controllers\tecnicos::class, 'index'])->name('tecnicos');
+})->name('home');
+Route::get('/clientes', [\App\Http\Controllers\ClientesController::class, 'index'])->name('clientes');
 
-Route::resource('/clientes', clientes::class);
+Route::get('/planes', [\App\Http\Controllers\PlanesController::class, 'index'])->name('planes');
+Route::get('/reportes', [\App\Http\Controllers\ReportesController::class, 'index'])->name('reportes');
+Route::get('/servicioTecnico', [\App\Http\Controllers\ServiciosController::class, 'index'])->name('servicioTecnico');
+Route::get('/tecnicos', [\App\Http\Controllers\TecnicosController::class, 'index'])->name('tecnicos');
+
+/* Route::resource('/clientes', clientes::class);
  */
 Auth::routes(); 
 
