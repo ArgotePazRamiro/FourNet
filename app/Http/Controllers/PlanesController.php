@@ -50,48 +50,37 @@ class PlanesController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    
+    public function edit(planes $planes)
     {
-        //
+        return view('planes.edit',[
+
+            'planes'=>$planes
+        ]);    
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+   
+    public function update(planes $planes)
     {
-        //
+        $planes->update([
+            'Nombre'=>request('Nombre'),
+            'Velocidad_subida'=>request('Velocidad_subida'),
+            'Velocidad_bajada'=>request('Velocidad_bajada'),
+            'Precio'=>request('Precio'),
+        ]);
+        return redirect()->route('planes.index',$planes);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    
+    public function destroy(planes $planes)
     {
-        //
+        $planes->delete();
+        return redirect()->route('planes.index');
     }
 }

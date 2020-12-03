@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanesController;
  
 
+/* Auth::routes(); */
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -15,8 +17,16 @@ Route::get('/servicioTecnico', [\App\Http\Controllers\ServiciosController::class
 Route::get('/tecnicos', [\App\Http\Controllers\TecnicosController::class, 'index'])->name('tecnicos');
 
  Route::resource('/planes', PlanesController::class);
- 
-Auth::routes(); 
+/* Route::get('/planes', [\App\Http\Controllers\PlanesController::class, 'index'])->name('planes.index');
+Route::get('/planes/create', [\App\Http\Controllers\PlanesController::class, 'create'])->name('planes.create');
+Route::post('/planes', [\App\Http\Controllers\PlanesController::class, 'store'])->name('planes.store');
+Route::get('/planes/{planes}/edit', [\App\Http\Controllers\PlanesController::class, 'edit'])->name('planes.edit');
+Route::patch('/planes/{planes}', [\App\Http\Controllers\PlanesController::class, 'update'])->name('planes.update');
+Route::delete('/planes/{planes}', [\App\Http\Controllers\PlanesController::class, 'destroy'])->name('planes.destroy');
+
+ */
+
+
 
 
 

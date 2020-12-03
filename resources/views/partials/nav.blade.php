@@ -13,7 +13,7 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
        
 
-      @guest
+     {{--  @guest
       <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
       @if (Route::has('register'))
       <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -26,7 +26,7 @@
       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
           {{ csrf_field() }}
       </form>
-      @endguest
+      @endguest --}}
       <script>
         <?php
 
