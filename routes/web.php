@@ -7,15 +7,15 @@ use App\Http\Controllers\TecnicosController;
 
  
 
-Auth::routes(); 
+
 
 Route::get('/', function () {
     return view('home');
-})->name('home');
+})->name('home'); 
 
 /* Route::get('/clientes', [\App\Http\Controllers\ClientesController::class, 'index'])->name('clientes');
 Route::get('/planes', [\App\Http\Controllers\PlanesController::class, 'index'])->name('planes'); */
-
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/reportes', [\App\Http\Controllers\ReportesController::class, 'index'])->name('reportes');
 Route::get('/servicios', [\App\Http\Controllers\ServiciosController::class, 'index'])->name('servicios');
 /* Route::get('/tecnicos', [\App\Http\Controllers\TecnicosController::class, 'index'])->name('tecnicos');
@@ -24,7 +24,7 @@ Route::resource('/planes', PlanesController::class);
 Route::resource('/clientes', ClientesController::class);
 Route::resource('/tecnicos', TecnicosController::class);
 
-
+Auth::routes(); 
 /* Route::get('/planes', [\App\Http\Controllers\PlanesController::class, 'index'])->name('planes.index');
 Route::get('/planes/create', [\App\Http\Controllers\PlanesController::class, 'create'])->name('planes.create');
 Route::post('/planes', [\App\Http\Controllers\PlanesController::class, 'store'])->name('planes.store');

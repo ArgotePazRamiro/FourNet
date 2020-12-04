@@ -7,12 +7,20 @@ use App\Models\Persona;
 
 class TecnicosController extends Controller
 {
+  public function __construct(){
+    
+    $this->middleware('auth')->except('index');
+  }
     public function index()
     {
-      $persona =Persona::select('persona.CI as CI','persona.Nombres as Nombres','persona.Apellidos as Apellidos','persona.Direccion as Direccion','persona.Cel1 as Cel1','persona.Estado as Estado','persona.Rol as Rol')
+      /* $persona =Persona::select('persona.CI as CI','persona.Nombres as Nombres','persona.Apellidos as Apellidos','persona.Direccion as Direccion','persona.Cel1 as Cel1','persona.Estado as Estado','persona.Rol as Rol')
       ->whereRol('empleado')
       ->get();
-return view('tecnicos.index',compact('persona'));
+return view('tecnicos.index',compact('persona')); */
+$persona = Persona::all();
+
+  return view("tecnicos.index",[
+  'persona' => $persona]);
     }
 
 

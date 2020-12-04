@@ -3,8 +3,7 @@
   <a class="navbar-brand col-md-3 col-lg-2 mr-3 px-3"> FourNet
       <!--     <img src="images/4Net-1024x507.png" alt="imagen" height="30px" width="150px" id="">-->
   </a>
-{{--   <h4>{{ auth()->user()->name}} __</h4>
- --}}
+
 
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,20 +12,20 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
        
 
-     {{--  @guest
+      @guest
       <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
       @if (Route::has('register'))
       <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
       @endif
       @else
-      <span>{{ Auth::user()->name }}</span>
+      <span style="color: white">{{ Auth::user()->name }}</span>
 
       <a href="{{ route('logout') }}" class="no-underline hover:underline" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
           {{ csrf_field() }}
       </form>
-      @endguest --}}
+      @endguest
       <script>
         <?php
 
