@@ -16,7 +16,7 @@ class CreateEmpleadosCargoTable extends Migration
         Schema::create('EmpleadoCargo', function (Blueprint $table) {
             $table->increments('idEmpleado_cargo');
             $table->string('Fecha_inicio');
-            $table->string('Fecha_fin');
+            $table->string('Fecha_fin')->nullable();
             $table->timestamps();
 
             $table->integer('persona_id')->unsigned()->nullable();

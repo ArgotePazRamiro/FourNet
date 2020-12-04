@@ -15,8 +15,8 @@ class CreatePagosTable extends Migration
     {
         Schema::create('Pago', function (Blueprint $table) {
             $table->increments('idPago');
-            $table->string('Mes');
-            $table->string('Año');
+            $table->string('Mes')->nullable();
+            $table->string('Año')->nullable();
             $table->timestamps();
         });
     }

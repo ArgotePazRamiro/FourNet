@@ -16,7 +16,7 @@ class CreateClientesPlanesTable extends Migration
         Schema::create('ClientePlan', function (Blueprint $table) {
             $table->increments('idClientePlan');
             $table->string('fecha_inicio');
-            $table->string('fecha_fin');
+            $table->string('fecha_fin')->nullable();
             $table->timestamps();
 
             $table->integer('persona_id')->unsigned()->nullable();

@@ -16,7 +16,7 @@ class CreatePersonasEstadoClientesTable extends Migration
         Schema::create('PersonaEstadoCliente', function (Blueprint $table) {
             $table->increments('idPersonaEstadoCliente');
             $table->string('fecha_inicio');
-            $table->string('fecha_fin');
+            $table->string('fecha_fin')->nullable();
             $table->timestamps();
 
             $table->integer('persona_id')->unsigned()->nullable();

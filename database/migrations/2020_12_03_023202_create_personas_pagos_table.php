@@ -15,7 +15,7 @@ class CreatePersonasPagosTable extends Migration
     {
         Schema::create('PersonaPago', function (Blueprint $table) {
             $table->increments('idPersonaPago');
-            $table->string('estado');
+            $table->string('estado')->nullable();
             $table->timestamps();
 
             $table->integer('persona_id')->unsigned()->nullable();
