@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Persona;
+use App\Models\ClientePlan;
+use App\Models\planes;
+use App\Models\Equipo;
+
 
 class ServiciosController extends Controller
 {
@@ -13,7 +18,13 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        return view('servicioTecnico.index');
+        $data= ClientePlan::join('persona','clienteplan.persona_id','=','persona.idPersona')
+                    ->join('planes','clienteplan.planes_id','=','planes.idPlanes')
+                    ->select('persona.*','planes.*')
+                    ->where('persona.Rol','=','cliente')
+                    ->get();
+
+        return view('servicios.index',compact('data'));
         
     }
 

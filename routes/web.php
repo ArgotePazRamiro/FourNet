@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/planes', [\App\Http\Controllers\PlanesController::class, 'index'])->name('planes'); */
 
 Route::get('/reportes', [\App\Http\Controllers\ReportesController::class, 'index'])->name('reportes');
-Route::get('/servicioTecnico', [\App\Http\Controllers\ServiciosController::class, 'index'])->name('servicioTecnico');
+Route::get('/servicios', [\App\Http\Controllers\ServiciosController::class, 'index'])->name('servicios');
 /* Route::get('/tecnicos', [\App\Http\Controllers\TecnicosController::class, 'index'])->name('tecnicos');
  */
 Route::resource('/planes', PlanesController::class);

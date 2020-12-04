@@ -73,7 +73,7 @@
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link {{ setActive('servicioTecnico') }}" href=" {{route('servicioTecnico')}} ">
+              <a class="nav-link {{ setActive('servicios.index') }}" href="{{route('servicios')}} ">
                 <span data-feather="file-text"></span>
                 Servicio Tecnico
               </a>

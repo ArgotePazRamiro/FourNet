@@ -10,6 +10,8 @@ class ClientesController extends Controller
 {
     public function index()
     {
+      
+
         $persona =Persona::all();
         return view("clientes.index",[
           'persona' => $persona]);
