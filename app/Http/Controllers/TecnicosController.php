@@ -3,83 +3,84 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Persona;
 
 class TecnicosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('tecnicos.index');
-        
+        $persona =Persona::all();
+        return view("tecnicos.index",[
+          'persona' => $persona]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        $persona = Persona::all();
+        $title = __("Crear tecnicos");
+        $textButton = __("Crear");
+        $route = route("tecnicos.store");
+        return view("tecnicos.create", compact("title", "textButton", "route", "persona"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+      /* $request->validate([
+        'Nombre' => 'required',
+        'descripcion' => 'required',
+        'categoria' => 'required',
+        'file' => 'required|image|max:1024',
+        'idLocal' => 'required'
+      ]); */
+      Persona::create([
+        'CI' => request('CI'),
+        'Nombres' => request('Nombres'),
+        'Apellidos' => request('Apellidos'),
+        'Direccion' => request('Direccion'),
+        'Cel1' => request('Cel1'),
+        'Estado' => request('Estado'),
+        'Rol' => request('Rol'),
+      ]);
+      return redirect()->route('tecnicos.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit(Persona $persona)
     {
-        //
+      return view('tecnicos.edit', [
+        'persona' => $persona,
+      ]);
+        // $update = true;
+        // $title = __("Editar Restaurant");
+        // $textButton = __("Actualizar");
+        // $route = route("restaurant.update", ["restaurant" => $restaurant]);
+        // return view("restaurant.edit", compact("update", "title", "textButton", "route", "restaurant"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request, Persona $persona)
     {
-        //
+      
+      $persona->update([
+        'CI' => request('CI'),
+        'Nombres' => request('Nombres'),
+        'Apellidos' => request('Apellidos'),
+        'Direccion' => request('Direccion'),
+        'Cel1' => request('Cel1'),
+        'Estado' => request('Estado'),
+        'Rol' => request('Rol'),
+      ]);
+      return redirect()->route('tecnicos.index')->with('status', 'La persona se ha actualizado');
+        // $this->validate($request, [
+        //     "name" => "required|unique:rest,name," . $restaurant->id,
+        //     "desciption" => "nullable|string|min:10"
+        // ]);
+        // $restaurant->fill($request->only("name", "desciption"))->save();
+        // return back()->with("success", __("Restaurant actualizado!"));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+/* 
+    public function destroy(Plato $restaurant)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+        $restaurant->delete();
+        return back()->with("success", __("Restaurant eliminado!"));
+    } */
 }

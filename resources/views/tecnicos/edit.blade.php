@@ -3,12 +3,12 @@
 @section("content")
 <div class="flex justify-center flex-wrap  p-1 mt-1">
   <div class="text-center">
-    <h1 class="mb-1">{{ __("EDITAR CLIENTE") }}</h1>
+    <h1 class="mb-1">{{ __("EDITAR TECNICO") }}</h1>
   </div>
 </div>
 <div class="conatiner-ciudades">
   <div class="container">
-    <form class="w-full max-w-lg" method="POST" action="{{ route('clientes.update', $persona) }}" enctype="multipart/form-data">
+    <form class="w-full max-w-lg" method="POST" action="{{ route('tecnicos.update', $persona) }}" enctype="multipart/form-data">
         @csrf @method('PATCH')
       @isset($update)
         @method("PUT")

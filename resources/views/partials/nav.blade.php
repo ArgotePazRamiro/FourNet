@@ -53,7 +53,7 @@
   
   
             <li class="nav-item ">
-            <a class="nav-link {{ setActive('clientes') }} " href=" {{route('clientes')}} ">
+            <a class="nav-link {{ setActive('clientes.index') }} " href=" {{route('clientes.index')}} ">
                 <span data-feather="users"></span>
                 Clientes
               </a>
@@ -67,7 +67,7 @@
   
             </li>
             <li class="nav-item ">
-              <a class="nav-link {{ setActive('tecnicos') }}" href="{{route('tecnicos')}} ">
+              <a class="nav-link {{ setActive('tecnicos.index') }}" href="{{route('tecnicos.index')}} ">
                 <span data-feather="rss"></span>
                 Tecnicos
               </a>

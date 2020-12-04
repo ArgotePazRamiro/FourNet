@@ -8,11 +8,7 @@ use App\Models\planes;
 
 class PlanesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $planes=planes::all();
@@ -20,23 +16,13 @@ class PlanesController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         $planes=new planes;
         return view("planes.create", compact("planes"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         planes::create([
@@ -51,10 +37,7 @@ class PlanesController extends Controller
     }
 
     
-    public function show($id)
-    {
-        //
-    }
+    
 
     
     public function edit(planes $planes)
@@ -74,7 +57,7 @@ class PlanesController extends Controller
             'Velocidad_bajada'=>request('Velocidad_bajada'),
             'Precio'=>request('Precio'),
         ]);
-        return redirect()->route('planes.index',$planes);
+        return redirect()->route('planes.show',$planes);
     }
 
     
