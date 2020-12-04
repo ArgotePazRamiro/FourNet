@@ -20,7 +20,10 @@ class ServiciosController extends Controller
     {
         $data= ClientePlan::join('persona','clienteplan.persona_id','=','persona.idPersona')
                     ->join('planes','clienteplan.planes_id','=','planes.idPlanes')
-                    ->select('persona.*','planes.*')
+                    ->select('persona.CI as CI','persona.Nombres as Nombres','persona.Apellidos as Apellidos',
+                    'persona.Direccion as Direccion','persona.Cel1 as Cel1',
+                    'planes.Nombre as Nombre','planes.Velocidad_subida as Velocidad_subida',
+                    'planes.Velocidad_bajada as Velocidad_bajada','planes.Precio as Precio')    
                     ->where('persona.Rol','=','cliente')
                     ->get();
 

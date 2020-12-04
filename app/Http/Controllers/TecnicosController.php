@@ -9,9 +9,10 @@ class TecnicosController extends Controller
 {
     public function index()
     {
-        $persona =Persona::all();
-        return view("tecnicos.index",[
-          'persona' => $persona]);
+      $persona =Persona::select('persona.CI as CI','persona.Nombres as Nombres','persona.Apellidos as Apellidos','persona.Direccion as Direccion','persona.Cel1 as Cel1','persona.Estado as Estado','persona.Rol as Rol')
+      ->whereRol('empleado')
+      ->get();
+return view('tecnicos.index',compact('persona'));
     }
 
 
@@ -26,13 +27,7 @@ class TecnicosController extends Controller
 
     public function store(Request $request)
     {
-      /* $request->validate([
-        'Nombre' => 'required',
-        'descripcion' => 'required',
-        'categoria' => 'required',
-        'file' => 'required|image|max:1024',
-        'idLocal' => 'required'
-      ]); */
+      
       Persona::create([
         'CI' => request('CI'),
         'Nombres' => request('Nombres'),
@@ -45,42 +40,35 @@ class TecnicosController extends Controller
       return redirect()->route('tecnicos.index');
     }
 
-    public function edit(Persona $persona)
+    public function edit($idPersona)
     {
-      return view('tecnicos.edit', [
-        'persona' => $persona,
-      ]);
+      $persona=Persona::find($idPersona);
+      return view('tecnicos.edit',compact(['persona']));
         // $update = true;
-        // $title = __("Editar Restaurant");
+        // $title = __("Editar tecnico");
         // $textButton = __("Actualizar");
-        // $route = route("restaurant.update", ["restaurant" => $restaurant]);
-        // return view("restaurant.edit", compact("update", "title", "textButton", "route", "restaurant"));
+        // return view("restaurant.edit", compact("update", "title", "textButton", "route", "persona"));
     }
 
-    public function update(Request $request, Persona $persona)
+    public function update(Request $request,$idPersona)
     {
-      
-      $persona->update([
-        'CI' => request('CI'),
-        'Nombres' => request('Nombres'),
-        'Apellidos' => request('Apellidos'),
-        'Direccion' => request('Direccion'),
-        'Cel1' => request('Cel1'),
-        'Estado' => request('Estado'),
-        'Rol' => request('Rol'),
-      ]);
+       $request->validate([
+        'CI' => 'required',
+        'Nombres' => 'required',
+        'Apellidos' => 'required',
+        'Direccion' => 'required',
+        'Cel1' => 'required',
+        'Estado' => 'required',
+        'Rol' => 'required',
+      ]); 
+      Persona::where('idPersona',$idPersona)->update($request->all());
       return redirect()->route('tecnicos.index')->with('status', 'La persona se ha actualizado');
-        // $this->validate($request, [
-        //     "name" => "required|unique:rest,name," . $restaurant->id,
-        //     "desciption" => "nullable|string|min:10"
-        // ]);
-        // $restaurant->fill($request->only("name", "desciption"))->save();
-        // return back()->with("success", __("Restaurant actualizado!"));
+        
     }
-/* 
-    public function destroy(Plato $restaurant)
+
+    public function destroy($idPersona)
     {
-        $restaurant->delete();
-        return back()->with("success", __("Restaurant eliminado!"));
-    } */
+      Persona::where('idPersona',$idPersona)->delete();
+      return redirect()->route('tecnicos.index');
+    }
 }

@@ -8,7 +8,7 @@
 </div>
 <div class="conatiner-ciudades">
   <div class="container">
-    <form class="w-full max-w-lg" method="POST" action="{{ route('tecnico.store') }}"
+    <form class="w-full max-w-lg" method="POST" action="{{ route('tecnicos.store') }}"
       enctype="multipart/form-data">
       @csrf
       @isset($update)
@@ -103,7 +103,6 @@
               </div>
             @enderror
           </div>
-
           <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="Rol">
               {{ __("Rol") }}
@@ -118,6 +117,40 @@
               </div>
             @enderror
           </div>
+
+
+          {{-- <div class="row">
+            <div class="col-md-5 mb-3">
+                <label for="Rol">Rol</label>
+                <select class="custom-select d-block w-100" id="Rol" name="Rol"
+                 required>
+                  @foreach ($paciente as $pacItem)
+            <option value="{{$pacItem->id}}"> {{$pacItem->nombres}} {{$pacItem->apPaterno}}</option>
+                 @endforeach 
+                 <option value="{{ old("Rol") }}">Administrador</option>
+                 <option value="{{ old("Rol") }}">Cliente</option>
+                 <option value="{{ old("Rol") }}">Tecnico</option>
+                </select>
+                <div class="invalid-feedback">
+                    Seleccione un Rol.
+                </div>
+            </div>
+        </div> --}}
+
+   {{--        <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="Rol">
+              {{ __("Rol") }}
+            </label>
+            <input name="Rol" value="{{ old("Rol") }}"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="Rol" type="text">
+            <p class="text-gray-600 text-xs italic"></p>
+            @error("Rol")
+              <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
+                {{ $message }}
+              </div>
+            @enderror
+          </div> --}}
             <div class="w-full px-3">
               <button type="submit" class="btn btn-primary">GUARDAR DATOS</button>
             </div>

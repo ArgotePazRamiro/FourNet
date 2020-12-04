@@ -7,7 +7,7 @@ use App\Http\Controllers\TecnicosController;
 
  
 
-/* Auth::routes(); */
+Auth::routes(); 
 
 Route::get('/', function () {
     return view('home');

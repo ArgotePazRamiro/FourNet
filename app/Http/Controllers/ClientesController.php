@@ -10,11 +10,10 @@ class ClientesController extends Controller
 {
     public function index()
     {
-      
-
-        $persona =Persona::all();
-        return view("clientes.index",[
-          'persona' => $persona]);
+        $persona =Persona::select('persona.CI as CI','persona.Nombres as Nombres','persona.Apellidos as Apellidos','persona.Direccion as Direccion','persona.Cel1 as Cel1','persona.Estado as Estado','persona.Rol as Rol')
+                          ->whereRol('cliente')
+                          ->get();
+        return view('clientes.index',compact('persona'));
     }
 
 

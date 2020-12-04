@@ -8,11 +8,9 @@
 </div>
 <div class="conatiner-ciudades">
   <div class="container">
-    <form class="w-full max-w-lg" method="POST" action="{{ route('tecnicos.update', $persona) }}" enctype="multipart/form-data">
-        @csrf @method('PATCH')
-      @isset($update)
-        @method("PUT")
-      @endisset
+    <form class="w-full max-w-lg" method="PUT" action="{{ route('tecnicos.update', $persona->idPersona) }}" enctype="multipart/form-data">
+      @csrf @method('PATCH')
+      <div>
       
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">

@@ -3,8 +3,8 @@
   <a class="navbar-brand col-md-3 col-lg-2 mr-3 px-3"> FourNet
       <!--     <img src="images/4Net-1024x507.png" alt="imagen" height="30px" width="150px" id="">-->
   </a>
-
-
+{{--   <h4>{{ auth()->user()->name}} __</h4>
+ --}}
 
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
