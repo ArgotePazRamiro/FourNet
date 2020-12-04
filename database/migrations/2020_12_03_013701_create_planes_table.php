@@ -18,7 +18,7 @@ class CreatePlanesTable extends Migration
             $table->string('Nombre');
             $table->string('Velocidad_subida');
             $table->string('Velocidad_bajada');
-            $table->string('Precio');
+            $table->bigInteger('Precio');
             $table->timestamps();
         });
     }
