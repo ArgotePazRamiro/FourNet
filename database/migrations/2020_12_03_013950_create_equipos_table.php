@@ -18,12 +18,12 @@ class CreateEquiposTable extends Migration
             $table->string('Nombre');
             $table->string('Usuario');
             $table->string('Contrasenia');
-            $table->string('UsuarioPPPoE');
-            $table->string('ContraseniaPPPoE');
-            $table->string('SSID');
-            $table->string('PasswordSSID');
-            $table->string('Tipo');
-            $table->string('Estado');
+            $table->string('UsuarioPPPoE')->nullable();
+            $table->string('ContraseniaPPPoE')->nullable();
+            $table->string('SSID')->nullable();
+            $table->string('PasswordSSID')->nullable();
+            $table->string('Tipo')->nullable();
+            $table->string('Estado')->nullable();
             $table->timestamps();
         });
     }
