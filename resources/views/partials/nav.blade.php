@@ -5,11 +5,11 @@
   </a>
 
 
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+    <button class="navbar-toggler position d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
    </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
+        <input class="form-control form-control-dark w-50" type="text" placeholder="" aria-label="Search">
        
 
       @guest
@@ -34,9 +34,7 @@
       return request()-> routeIs($routeName) ? 'active' : '';
       }?>
       </script>
-      
 
-  </nav>
 </nav>
 <div class="container-fluid">
     <div class="row">

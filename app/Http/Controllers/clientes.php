@@ -8,11 +8,11 @@ use Illuminate\Http\Response;
 
 class clientes extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('soloadmin');
+    }
     public function index()
     {
         $clientes=equipos::all();

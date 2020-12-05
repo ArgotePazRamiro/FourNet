@@ -4,11 +4,12 @@
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Planes</h1>
+        @if (auth()->check() && auth()->user()->fullacces!=="no")
          <h2><u><a class="btn btn-primary mb-2" href="{{route('planes.create') }}"> 
                 Crear Nuevo Plan
             </a></u></h2> 
             
-            
+        @endif
     </div>
 
     <div class="container">
@@ -20,7 +21,7 @@
         <table class="table table-striped table-dark ">
             <thead>
                 <tr style="color: black" class="table-succes">
-                    <th scope="col">Id Planes</th>
+                    
                     <th scope="col">Nombre</th>
                     <th scope="col">Velocidad de Subida</th>
                     <th scope="col">Velocidad de Bajada</th>
@@ -32,7 +33,7 @@
             <tbody>
                 @forelse ($planes as $portItem)
                  <tr>
-                    <td scope="row">{{ $portItem->idPlanes }}</td>
+                    
                     <td >{{ $portItem->Nombre }}</td>
                     <td>{{ $portItem->Velocidad_subida }} </td>
                     <td>{{ $portItem->Velocidad_bajada }}</td>

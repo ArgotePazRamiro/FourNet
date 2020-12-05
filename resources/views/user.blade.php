@@ -6,11 +6,13 @@
         <div class="row">
 
             <div class="col-12 col-lg-6">
-                <h1 class="display-4 text-primary">FourNet Administrador</h1>
+                <h1 class="display-4 text-primary">FourNet Tecnico</h1>
                 <p class="lead text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt quibusdam
                     enim voluptate quidem vero quasi, dolor obcaecati exercitationem reiciendis cum consectetur commodi
                     cumque, quaerat quis placeat numquam debitis optio esse!</p>
             </div>
+            
+
         </div>
     </div>
 

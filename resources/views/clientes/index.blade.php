@@ -3,21 +3,17 @@
 @section("content")
 <div class="flex justify-center flex-wrap  p-1 mt-1">
     <div class="text-center">
-        <form class="form-inline">
-          
-            <input name="categoria"  class="form-control mr-sm-2" type="search" placeholder="categoria" aria-label="categoria">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
+        
         <h1 class="">{{ __("Cliente") }}</h1>
-{{--         @if (auth()->check() && auth()->user()->role!=="0")
- --}}        <br>
+        @if (auth()->check() && auth()->user()->fullacces!=="no")
+        <br>
         <a href="{{ route("clientes.create") }}" class=" btn btn-success">
           Crear Nuevo Cliente
         </a>
         
         <br>
-{{--         @endif
- --}}    </div>
+        @endif
+    </div>
 
 </div>
 
@@ -46,7 +42,9 @@
             <td class="border px-4 py-2">{{ $portItem->Cel1 }}</td>
             <td class="border px-4 py-2">{{ $portItem->Estado }}</td>
             <td class="border px-4 py-2">{{ $portItem->Rol }}</td>
-            <td><a {{-- href="{{ route("clientes.edit", $portItem) }}" --}} class=" btn btn-warning">
+            @if (auth()->check() && auth()->user()->fullacces!=="no")
+
+            <td><a href="{{ route("clientes.edit", $portItem->idPersona) }}" class=" btn btn-warning">
                 <svg class="bi bi-receipt" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -56,6 +54,8 @@
                 </svg>
             </a>
             </td>
+        @endif
+
             {{-- <td class="border px-4 py-2">
 
                 <a href="{{ route("restaurant.edit", $restaurant) }}" class=" btn btn-warning">

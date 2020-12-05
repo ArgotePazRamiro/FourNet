@@ -5,11 +5,14 @@
     <div class="text-center">
         <h1 class="">{{ __("tecnicos") }}</h1>
        <br>
+       @if (auth()->check() && auth()->user()->fullacces!=="no")
+
         <a href="{{ route("tecnicos.create") }}" class=" btn btn-success">
           Crear Nuevo Tecnico
         </a>
         
         <br>
+        @endif
   </div>
 
 </div>
@@ -39,7 +42,9 @@
             <td class="border px-4 py-2">{{ $portItem->Cel1 }}</td>
             <td class="border px-4 py-2">{{ $portItem->Estado }}</td>
             <td class="border px-4 py-2">{{ $portItem->Rol }}</td>
-            <td><a href="{{ route("tecnicos.edit", $portItem->idPersona) }} " class=" btn btn-warning">
+       @if (auth()->check() && auth()->user()->fullacces!=="no")
+
+            <td><a {{-- href="{{ route("tecnicos.edit", $portItem->idPersona) }} --}} " class=" btn btn-warning">
                 <svg class="bi bi-receipt" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -60,9 +65,11 @@
                     </svg>
                 </a>
             </td> 
-            <form  action="{{route('tecnicos.destroy', $portItem->idPersona)}}"  id="delete-tecnicos" method="POST"
+            <form  {{-- action="{{route('tecnicos.destroy', $portItem->idPersona)}}" --}}  id="delete-tecnicos" method="POST"
             class="d-none">
             @csrf @method('DELETE')
+        @endif
+
         </form>
         </tr>
         @empty
